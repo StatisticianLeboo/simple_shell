@@ -4,8 +4,8 @@
  * _myexit - exits the shell
  * @info: structure containing potential arguments
  *
- * This function exits the shell with a given exit status, provided as an argument
- * to the "exit" command. If no argument is provided, the function exits with a
+ * This function exits the shell with a given exit status, provided as an arg
+ * to the "exit" command. If no arg is provided, the function exits with a
  * default status of -1.
  *
  * Return: -2 if the "exit" command was found, or 0 otherwise.
@@ -15,13 +15,14 @@ int _myexit(info_t *info)
 	if (info->argv[1]) /* if there is an argument */
 	{
 		int exit_code = _erratoi(info->argv[1]);
+
 		if (exit_code == -1)
 		{
 			info->status = 2;
 			print_error(info, "Illegal number: ");
 			_eputs(info->argv[1]);
 			_eputchar('\n');
-			return 1;
+			return (1);
 		}
 		info->err_num = exit_code;
 	}
@@ -30,7 +31,7 @@ int _myexit(info_t *info)
 		info->err_num = -1;
 	}
 
-	return -2;
+	return (-2);
 }
 
 /**
@@ -38,10 +39,10 @@ int _myexit(info_t *info)
  * @info: structure containing potential arguments
  *
  * This function changes the current working directory of the shell process, as
- * specified by the "cd" command. If no argument is provided, the function changes
- * the working directory to the user's home directory. If the argument is a hyphen
- * "-", the function changes the working directory to the previous working directory
- * (as stored in the OLDPWD environment variable). If the argument is a valid path,
+ * specified by the "cd" command. If no arg is provided, the function changes
+ * the working dir to the user's home dir. If the argument is a hyphen
+ * "-", the function changes the working dir to the previous working directory
+ * (as stored in the OLDPWD environment var). If the argument is a valid path,
  * the function changes the working directory to that path.
  *
  * Return: Always 0.
@@ -65,7 +66,7 @@ int _mycd(info_t *info)
 		{
 			_puts(buffer);
 			_putchar('\n');
-			return 1;
+			return (1);
 		}
 		dir = _getenv(info, "OLDPWD=");
 	}
@@ -86,7 +87,7 @@ int _mycd(info_t *info)
 		_setenv(info, "PWD", getcwd(buffer, 1024));
 	}
 
-	return 0;
+	return (0);
 }
 
 /**
@@ -102,6 +103,6 @@ int _myhelp(info_t *info)
 	(void)info; /* avoid "unused parameter" warning */
 
 	_puts("help call works. Function not yet implemented\n");
-	return 0;
+	return (0);
 }
 
