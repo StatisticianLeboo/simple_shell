@@ -1,0 +1,1 @@
+Group project. Creating a simple shell
