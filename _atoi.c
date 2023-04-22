@@ -50,9 +50,10 @@ int _atoi(char *s)
 {
 	int sign = 1, output = 0;
 	unsigned int result = 0;
-	int flag = 0; /* 0 = no numbers found yet, 1 = numbers found, 2 = finished */
+	int flag = 0; /* 0 = no numbers found yet, 1 = numbers found, 2 = finished */	
+	int i;
 
-	for (int i = 0; s[i] != '\0' && flag != 2; i++)
+	for (i = 0; s[i] != '\0' && flag != 2; i++)
 	{
 		if (s[i] == '-')
 			sign *= -1;
