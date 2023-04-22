@@ -120,16 +120,16 @@ int build_history_list(info_t *info, char *buf, int linecount)
 
 	if (!info->history)
 		info->history = node;
-	return (0)
+	return (0);
 }
 
 /**
+ * renumber_history - will renumber the linked list history
  * @info: Structure that contains potential arguements
- * renumber_history - renumbers the linked list history when changes are made
  *
  * Return: new histcount value
  */
-int renumberhistory(info_t *info)
+int renumber_history(info_t *info)
 {
 	list_t *node = info->history;
 	int i = 0;
